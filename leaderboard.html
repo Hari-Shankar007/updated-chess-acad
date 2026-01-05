@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EDUCHESS – Where Learning Meets Chess Mastery</title>
+    <link rel="stylesheet" href="home.css" />
+</head>
+
+<body data-theme="indigo-lime">
+
+    <header>
+        <div class="container nav">
+            <div class="logo magnetic">EDUCHESS</div>
+            <nav class="row" style="justify-content:flex-end">
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#leaderboard">Leaderboard</a>
+                <!-- <a href="blog.html" target="_blank">Blog</a> -->
+                <a href="#coaching">Coaching</a>
+                <a href="#faqs">FAQs</a>
+                <a href="youtube.html" target="_blank">YouTube</a>
+                <a href="#contact">Contact</a>
+                <a href="#book" class="btn" style="padding:8px 14px;border-radius:10px;margin-left:6px">Book</a>
+            </nav>
+            <div class="theme-switcher">
+                <select id="themeSelect" class="select" aria-label="Color theme">
+                    <option value="indigo-lime">Indigo + Lime</option>
+                    <option value="purple-gold">Purple + Gold</option>
+                    <option value="ocean-coral">Ocean + Coral</option>
+                    <option value="forest-cream">Forest + Cream</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        /* Ultra-Enhanced Cards */
+    .card { 
+        background: 
+            linear-gradient(135deg, var(--card), rgba(255,255,255,.02)),
+            var(--bg2); 
+        border: 1px solid var(--stroke); 
+        border-radius: var(--radius); 
+        padding: 35px; 
+        box-shadow: var(--shadow); 
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        will-change: transform; 
+        transform-style: preserve-3d; 
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+    }
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+    .card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,212,255,.1) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .card:hover::before {
+        transform: scaleX(1);
+    }
+    .card:hover::after {
+        opacity: 1;
+    }
+    .card:hover { 
+        transform: perspective(1000px) rotateY(var(--rotateY, 0deg)) rotateX(var(--rotateX, 0deg)) translateY(-15px) scale3d(1.05, 1.05, 1.05); 
+        border-color: var(--accent); 
+        box-shadow: 0 35px 90px rgba(0, 212, 255, .3); 
+    }
+    </style>
+
+    <!-- LEADERBOARD SECTION -->
+    <!-- <section id="leaderboard" class="section">
+        <div class="container reveal">
+            <h2 class="center">Tournament Leaderboard</h2>
+            <p class="lead center">Top performers from our recent tournaments and training programs.</p>
+            <div class="card">
+                <table class="table" id="leaderboardTable">
+                    <div class="leaderboard-container">
+                        <table id="leaderboard">
+                            <thead>
+                                <tr>
+                                    <th>Rank <span class="arrow">↑</span></th>
+                                    <th>Player <span class="arrow">↑</span></th>
+                                    <th>Rating <span class="arrow">↑</span></th>
+                                    <th>Wins <span class="arrow">↑</span></th>
+                                    <th>Losses <span class="arrow">↑</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Magnus Carlsen</td>
+                                    <td>2847</td>
+                                    <td>42</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Hikaru Nakamura</td>
+                                    <td>2829</td>
+                                    <td>38</td>
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Fabiano Caruana</td>
+                                    <td>2806</td>
+                                    <td>35</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Alice Johnson</td>
+                                    <td>2156</td>
+                                    <td>28</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Bob Smith</td>
+                                    <td>1987</td>
+                                    <td>24</td>
+                                    <td>16</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Carol Davis</td>
+                                    <td>1876</td>
+                                    <td>22</td>
+                                    <td>18</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>David Wilson</td>
+                                    <td>1754</td>
+                                    <td>19</td>
+                                    <td>18</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>Emma Brown</td>
+                                    <td>1698</td>
+                                    <td>17</td>
+                                    <td>23</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </section> -->
+
+
+
+
+
+
+    <!-- vsihal -->
+
+    <!-- LEADERBOARD SECTION -->
+    <section id="leaderboard" class="section">
+        <div class="container reveal">
+            <h2 class="center">Tournament Leaderboard</h2>
+            <p class="lead center">Top performers from our recent tournaments and training programs.</p>
+            <div class="card">
+                <table class="table" id="leaderboardTable">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Rank ↕</th>
+                            <th onclick="sortTable(1)">Player ↕</th>
+                            <th onclick="sortTable(2)">Rating ↕</th>
+                            <th onclick="sortTable(3)">Wins ↕</th>
+                            <th onclick="sortTable(4)">Losses ↕</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody">
+                        <!-- Data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        /* === LEADERBOARD FUNCTIONALITY === */
+        const leaderboardData = [
+            { rank: 1, player: 'Magnus Carlsen', rating: 2847, wins: 42, losses: 3 },
+            { rank: 2, player: 'Hikaru Nakamura', rating: 2829, wins: 38, losses: 7 },
+            { rank: 3, player: 'Fabiano Caruana', rating: 2806, wins: 35, losses: 5 },
+            { rank: 4, player: 'Alice Johnson', rating: 2156, wins: 28, losses: 12 },
+            { rank: 5, player: 'Bob Smith', rating: 1987, wins: 24, losses: 16 },
+            { rank: 6, player: 'Carol Davis', rating: 1876, wins: 22, losses: 18 },
+            { rank: 7, player: 'David Wilson', rating: 1754, wins: 19, losses: 21 },
+            { rank: 8, player: 'Emma Brown', rating: 1698, wins: 17, losses: 23 },
+            { rank: 9, player: 'Aswin Kumar', rating: 1654, wins: 16, losses: 23 },
+            { rank: 10, player: 'Vishal', rating: 1598, wins: 15, losses: 25 }
+        ];
+
+        function populateLeaderboard() {
+            const tbody = document.getElementById('leaderboardBody');
+            tbody.innerHTML = '';
+            leaderboardData.forEach(player => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td>${player.rank}</td>
+                <td>${player.player}</td>
+                <td>${player.rating}</td>
+                <td>${player.wins}</td>
+                <td>${player.losses}</td>
+            `;
+                tbody.appendChild(row);
+            });
+        }
+        populateLeaderboard();
+
+        window.sortTable = (column) => {
+            const keys = ['rank', 'player', 'rating', 'wins', 'losses'];
+            const key = keys[column];
+
+            leaderboardData.sort((a, b) => {
+                if (typeof a[key] === 'number') {
+                    return b[key] - a[key]; // Descending for numbers
+                } else {
+                    return a[key].localeCompare(b[key]); // Ascending for strings
+                }
+            });
+
+            populateLeaderboard();
+        };
+
+        /* === ADVANCED SCROLL ANIMATIONS === */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('slide-left')) {
+                        entry.target.style.animation = 'slideInLeft 1s ease-out forwards';
+                    } else if (entry.target.classList.contains('slide-right')) {
+                        entry.target.style.animation = 'slideInRight 1s ease-out forwards';
+                    } else if (entry.target.classList.contains('bounce')) {
+                        entry.target.style.animation = 'bounceIn 1s ease-out forwards';
+                    } else {
+                        entry.target.classList.add('show');
+                    }
+
+                    if (entry.target.id === 'stats') {
+                        setTimeout(() => {
+                            animateCounter('studentsCounter', 312, 2500);
+                            animateCounter('tournamentsCounter', 89, 2500);
+                            animateCounter('ratingCounter', 245, 2500, '+');
+                        }, 400);
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        /* === ANIMATED HEADLINE === */
+        const animatedHeadline = document.querySelector('.animated-headline');
+        if (animatedHeadline) {
+            const text = animatedHeadline.textContent;
+            animatedHeadline.textContent = '';
+            text.split('').forEach((char, i) => {
+                const span = document.createElement('span');
+                span.className = 'char';
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                span.style.animationDelay = `${i * 60}ms`;
+                animatedHeadline.appendChild(span);
+            });
+        }
+
+        /* === STATS COUNTER === */
+        function animateCounter(id, finalValue, duration, prefix = '') {
+            const element = document.getElementById(id);
+            if (!element || element.hasAnimated) return;
+            element.hasAnimated = true;
+            let start = 0;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const currentValue = Math.floor(progress * finalValue);
+                element.textContent = currentValue + prefix;
+                if (progress < 1) {
+                    requestAnimationFrame(animation);
+                }
+            }
+            requestAnimationFrame(animation);
+        }
+
+        /* === ENHANCED 3D CARD EFFECTS === */
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateY = (x - centerX) / centerX * 12;
+                const rotateX = (y - centerY) / centerY * -12;
+
+                card.style.setProperty('--rotateY', `${rotateY}deg`);
+                card.style.setProperty('--rotateX', `${rotateX}deg`);
+                card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+                card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--rotateY', '0deg');
+                card.style.setProperty('--rotateX', '0deg');
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="container">&copy; 2024 EDUCHESS · All rights reserved</div>
+    </footer>
+
+    <!-- WhatsApp Icon -->
+    <div class="whatsapp-body">
+        <a href="https://wa.me/919633896415" target="_blank" class="whatsapp-float">
+            <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="whatsapp-icon">
+        </a>
+    </div>
+
+
+    <script src="home.js"></script>
+</body>
+
+</html>
