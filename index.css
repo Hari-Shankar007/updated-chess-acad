@@ -792,11 +792,12 @@ footer {
 }
 
 .reveal {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: none;
     transition: opacity .6s ease, transform .6s ease;
-    will-change: transform
+    will-change: transform;
 }
+
 
 .reveal.show {
     opacity: 1;
@@ -1212,3 +1213,4 @@ th {
     font-size: 16px;
   }
 }
+
