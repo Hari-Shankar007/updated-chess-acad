@@ -22,49 +22,7 @@
       --shadow: 0 14px 50px rgba(0, 0, 0, .35);
     }
 
-    [data-theme="indigo-lime"] {
-      --bg: #0b1020;
-      --bg2: #0f1630;
-      --text: #f2f7ff;
-      --muted: #c9d6ff;
-      --accent: #9be15d;
-      --accent2: #00e3a8;
-      --stroke: #22305e;
-      --card: rgba(255, 255, 255, .05);
-    }
-
-    [data-theme="purple-gold"] {
-      --bg: #0d0a14;
-      --bg2: #140f22;
-      --text: #f6f3ff;
-      --muted: #cfc4ff;
-      --accent: #c9a227;
-      --accent2: #ffe07d;
-      --stroke: #2b2145;
-      --card: rgba(255, 255, 255, .05);
-    }
-
-    [data-theme="ocean-coral"] {
-      --bg: #06141f;
-      --bg2: #0a1e2e;
-      --text: #e9f7ff;
-      --muted: #c5e7ff;
-      --accent: #00c2ff;
-      --accent2: #ff6f61;
-      --stroke: #12364b;
-      --card: rgba(255, 255, 255, .06);
-    }
-
-    [data-theme="forest-cream"] {
-      --bg: #0b120e;
-      --bg2: #0e1a13;
-      --text: #f9fff6;
-      --muted: #d8f2e1;
-      --accent: #76d47c;
-      --accent2: #ffe9b0;
-      --stroke: #1f3a2a;
-      --card: rgba(255, 255, 255, .05);
-    }
+   
 
     /* =============== RESET / BASE =============== */
     * {
@@ -1452,50 +1410,6 @@
       </div>
     </div>
 
-    <section id="book" class="section">
-      <div class="container grid grid-2">
-        <div class="card">
-          <h2>Book a Session</h2>
-          <p class="lead">Pick a time that works for you. We’ll confirm and send details.</p>
-          <form onsubmit="event.preventDefault(); alert('Thanks! We will confirm shortly.');">
-            <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
-              <input required placeholder="First name" aria-label="First name" style="padding:12px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:#fff">
-              <input required placeholder="Last name" aria-label="Last name" style="padding:12px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:#fff">
-            </div>
-            <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-              <input type="email" required placeholder="Email" aria-label="Email" style="padding:12px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:#fff">
-              <input type="tel" placeholder="Phone (optional)" aria-label="Phone" style="padding:12px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:#fff">
-            </div>
-            <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-              <select id="serviceType" aria-label="Service Type" style="padding:12px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:#fff;width:100%">
-                <option>Private Lesson (Online)</option>
-                <option>Group Class</option>
-                <option>Offline Coaching (In‑Person)</option>
-                <option>Tournament</option>
-              </select>
-              <select id="modeSelect" aria-label="Mode" style="padding:12px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:#fff;width:100%">
-                <option value="online">Online</option>
-                <option value="inperson">In‑person</option>
-              </select>
-            </div>
-            <select id="locationSelect" aria-label="Location" style="margin-top:12px;padding:12px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:#fff;width:100%;display:none">
-              <option>Central City Chess Club</option>
-              <option>Riverside Library</option>
-              <option>Northside Youth Center</option>
-              <option>Custom Venue (contact us)</option>
-            </select>
-            <textarea rows="4" placeholder="Goals or questions" aria-label="Goals or questions" style="margin-top:12px;padding:12px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:#fff;width:100%"></textarea>
-            <div class="row" style="justify-content:flex-start;margin-top:12px">
-              <a class="btn" href="https://calendly.com/" target="_blank" rel="noopener">Open Calendar</a>
-              <button class="btn ghost" type="submit">Send Request</button>
-            </div>
-          </form>
-        </div>
-        <div class="card" style="display:grid;place-items:center;background:radial-gradient(600px 180px at 110% -10%,rgba(0,227,168,.18),transparent),var(--card)">
-          <img alt="In-person lesson" loading="lazy" src="https://images.unsplash.com/photo-1529699211952-734e80c4d647?auto=format&fit=crop&w=1000&q=60" style="border-radius:14px;animation:float 10s ease-in-out infinite">
-        </div>
-      </div>
-    </section>
 
     <section id="contact" class="section">
       <div class="container grid grid-2">
@@ -1794,6 +1708,7 @@
 </body>
 
 </html>
+
 
 
 
