@@ -1681,6 +1681,51 @@
       const lb = document.getElementById('lightbox');
       if (lb) lb.style.display = 'none';
     }
+
+    // KPI counters (About Your Coach)
+(function () {
+  const counters = document.querySelectorAll('.counter');
+  if (!counters.length) return;
+
+  const duration = 1500; // total animation time in ms
+
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-to'), 10);
+    if (isNaN(target)) return;
+
+    let start = 0;
+    const startTime = performance.now();
+
+    function update(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const value = Math.floor(progress * target);
+      el.textContent = value;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target; // ensure exact final value
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // Trigger when KPI area is visible (IntersectionObserver)
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        counters.forEach(animateCounter);
+        obs.disconnect(); // run only once
+      }
+    });
+  }, {
+    threshold: 0.4
+  });
+
+  const kpiSection = document.querySelector('.kpis');
+  if (kpiSection) observer.observe(kpiSection);
+})();
   </script>
 
 
@@ -1688,6 +1733,7 @@
 </body>
 
 </html>
+
 
 
 
