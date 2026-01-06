@@ -516,9 +516,41 @@
         <img alt="">
     </div>
 
+
+
+
+
+
+    <script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+    document.body.classList.toggle('nav-open');
+  });
+</script>
+    
+
+
+
+
+
+
+    
+
     <script src="index.js"></script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
 
 
