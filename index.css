@@ -12,51 +12,6 @@
     --shadow: 0 14px 50px rgba(0, 0, 0, .35);
 }
 
-/* Theme palettes (                        mpatible: no color-mix) */
-[data-theme="indigo-lime"] {
-    --bg: #0b1020;
-    --bg2: #0f1630;
-    --text: #f2f7ff;
-    --muted: #c9d6ff;
-    --accent: #9be15d;
-    --accent2: #00e3a8;
-    --stroke: #22305e;
-    --card: rgba(255, 255, 255, .05);
-}
-
-[data-theme="purple-gold"] {
-    --bg: #0d0a14;
-    --bg2: #140f22;
-    --text: #f6f3ff;
-    --muted: #cfc4ff;
-    --accent: #c9a227;
-    --accent2: #ffe07d;
-    --stroke: #2b2145;
-    --card: rgba(255, 255, 255, .05);
-}
-
-[data-theme="ocean-coral"] {
-    --bg: #06141f;
-    --bg2: #0a1e2e;
-    --text: #e9f7ff;
-    --muted: #c5e7ff;
-    --accent: #00c2ff;
-    --accent2: #ff6f61;
-    --stroke: #12364b;
-    --card: rgba(255, 255, 255, .06);
-}
-
-[data-theme="forest-cream"] {
-    --bg: #0b120e;
-    --bg2: #0e1a13;
-    --text: #f9fff6;
-    --muted: #d8f2e1;
-    --accent: #76d47c;
-    --accent2: #ffe9b0;
-    --stroke: #1f3a2a;
-    --card: rgba(255, 255, 255, .05);
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -1609,6 +1564,7 @@ th {
     right: 18px;
   }
 }
+
 
 
 
