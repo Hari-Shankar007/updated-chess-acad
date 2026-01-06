@@ -1168,10 +1168,10 @@
       <div class="logo magnetic">EDUCHESS</div>
 
       <button class="nav-toggle" aria-label="Toggle navigation">
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
-      </button>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
 
       <nav class="row nav-links">
         <a href="#about">About</a>
@@ -1682,32 +1682,13 @@
       if (lb) lb.style.display = 'none';
     }
   </script>
-  <script>
-  (function () {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks  = document.querySelector('.nav-links');
-    if (!navToggle || !navLinks) return;
 
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      navLinks.classList.toggle('open');
-      document.body.classList.toggle('nav-open');
-    });
-
-    navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('open');
-        navLinks.classList.remove('open');
-        document.body.classList.remove('nav-open');
-      });
-    });
-  })();
-</script>
 
   <script src="index.js"></script>
 </body>
 
 </html>
+
 
 
 
