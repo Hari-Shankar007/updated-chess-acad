@@ -10,9 +10,167 @@
 
 <body>
 
+     <header>
+    <div class="container nav">
+      <div class="logo magnetic">EDUCHESS</div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+
+      <nav class="row nav-links">
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="leaderboard.html" target="_blank">Leaderboard</a>
+        <a href="#coaching">Coaching</a>
+        <a href="#faqs">FAQs</a>
+        <a href="BLOG.Html" target="_blank">Blog</a>
+        <a href="youtube.html">YouTube</a>
+        <a href="#contact">Contact</a>
+        <a href="#book" class="btn nav-cta">Book</a>
+      </nav>
+
+
+    </div>
+  </header>
+
+
     
 
     <style>
+
+         /* =============== HEADER + NAV =============== */
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 40;
+      background: linear-gradient(180deg, rgba(15, 22, 48, .85), rgba(15, 22, 48, .4));
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--stroke);
+      transition: box-shadow .3s ease, background .3s ease;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: .12em;
+      color: var(--accent);
+      font-size: 22px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 18px;
+      flex: 1;
+    }
+
+    .nav-links.row {
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-weight: 650;
+      color: #fff;
+      opacity: .95;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width .35s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 8px 14px !important;
+      border-radius: 10px;
+    }
+
+    .theme-switcher {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .select {
+      appearance: none;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--stroke);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(6, 12, 28, 0.92);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0;
+      transition: background .25s ease, box-shadow .25s ease, transform .18s ease;
+    }
+
+    .nav-toggle:hover {
+      background: rgba(12, 22, 44, 0.98);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, .55);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle-line {
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: transform .25s ease, opacity .2s ease;
+    }
+
+    .nav-toggle.open .nav-toggle-line:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.open .nav-toggle-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open .nav-toggle-line:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
 
          
     * {
@@ -455,11 +613,242 @@
 
 
     
+<script>
+    // Smooth scroll helper
+    function gotoSection(sel) {
+      const el = document.querySelector(sel);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Navbar hamburger
+    (function () {
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      if (!navToggle || !navLinks) return;
+
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navLinks.classList.toggle('open');
+        document.body.classList.toggle('nav-open');
+      });
+
+      navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('open');
+          navLinks.classList.remove('open');
+          document.body.classList.remove('nav-open');
+        });
+      });
+    })();
+
+    // Gallery filter
+    (function () {
+      const buttons = document.querySelectorAll('.filter-btn');
+      const imgs = document.querySelectorAll('#galleryGrid img');
+      if (!buttons.length) return;
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          imgs.forEach(img => {
+            const cat = img.getAttribute('data-cat');
+            img.style.display = (filter === 'all' || filter === cat) ? 'block' : 'none';
+          });
+        });
+      });
+    })();
+
+    // FAQ accordion
+    (function () {
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const q = item.querySelector('.faq-question');
+        const a = item.querySelector('.faq-answer');
+        if (!q || !a) return;
+
+        if (item.classList.contains('open')) {
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+
+        q.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item').forEach(i => {
+            i.classList.remove('open');
+            const ans = i.querySelector('.faq-answer');
+            const btn = i.querySelector('.faq-question');
+            if (ans && btn) {
+              ans.style.maxHeight = null;
+              btn.setAttribute('aria-expanded', 'false');
+              ans.setAttribute('aria-hidden', 'true');
+            }
+          });
+
+          if (!isOpen) {
+            item.classList.add('open');
+            a.style.maxHeight = a.scrollHeight + 'px';
+            q.setAttribute('aria-expanded', 'true');
+            a.setAttribute('aria-hidden', 'false');
+          }
+        });
+      });
+    })();
+
+    // Price toggle
+    (function () {
+      const toggle = document.getElementById('priceToggle');
+      if (!toggle) return;
+      const buttons = toggle.querySelectorAll('button');
+      const prices = document.querySelectorAll('.price');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mode = btn.getAttribute('data-mode');
+          buttons.forEach(b => {
+            b.classList.toggle('active', b === btn);
+            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+          });
+          prices.forEach(p => {
+            const val = p.getAttribute('data-' + mode);
+            if (val) p.textContent = val;
+          });
+        });
+      });
+    })();
+
+    // Review slider
+    (function () {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const prev = document.querySelector('.reviews-nav.prev');
+      const next = document.querySelector('.reviews-nav.next');
+      if (!slides.length || !prev || !next) return;
+      let idx = 0;
+
+      function show(i) {
+        slides.forEach((s, j) => {
+          s.classList.toggle('active', j === i);
+        });
+      }
+
+      prev.addEventListener('click', () => {
+        idx = (idx - 1 + slides.length) % slides.length;
+        show(idx);
+      });
+
+      next.addEventListener('click', () => {
+        idx = (idx + 1) % slides.length;
+        show(idx);
+      });
+    })();
+
+    // Chat toggle
+    (function () {
+      const toggle = document.getElementById('chat-toggle');
+      const box = document.getElementById('chat-container');
+      if (!toggle || !box) return;
+      toggle.addEventListener('click', () => {
+        box.classList.toggle('active');
+      });
+    })();
+
+    // Chat sendMessage stub
+    function sendMessage() {
+      const input = document.getElementById('user-input');
+      const box = document.getElementById('chat-box');
+      if (!input || !box || !input.value.trim()) return;
+      const msg = document.createElement('div');
+      msg.className = 'message user-message';
+      msg.textContent = input.value.trim();
+      box.appendChild(msg);
+      input.value = '';
+      box.scrollTop = box.scrollHeight;
+
+      setTimeout(() => {
+        const reply = document.createElement('div');
+        reply.className = 'message bot-message';
+        reply.textContent = 'Thanks for your message! A human coach will reply soon.';
+        box.appendChild(reply);
+        box.scrollTop = box.scrollHeight;
+      }, 600);
+    }
+
+    // Lightbox
+    (function () {
+      const lb = document.getElementById('lightbox');
+      const lbImg = lb ? lb.querySelector('img') : null;
+      if (!lb || !lbImg) return;
+      const galleryImgs = document.querySelectorAll('#galleryGrid img');
+
+      galleryImgs.forEach(img => {
+        img.addEventListener('click', () => {
+          lbImg.src = img.src;
+          lb.style.display = 'flex';
+        });
+      });
+
+      lb.addEventListener('click', e => {
+        if (e.target === lb) hideLightbox();
+      });
+    })();
+
+    function hideLightbox() {
+      const lb = document.getElementById('lightbox');
+      if (lb) lb.style.display = 'none';
+    }
+
+    // KPI counters (About Your Coach)
+(function () {
+  const counters = document.querySelectorAll('.counter');
+  if (!counters.length) return;
+
+  const duration = 1500; // total animation time in ms
+
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-to'), 10);
+    if (isNaN(target)) return;
+
+    let start = 0;
+    const startTime = performance.now();
+
+    function update(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const value = Math.floor(progress * target);
+      el.textContent = value;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target; // ensure exact final value
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // Trigger when KPI area is visible (IntersectionObserver)
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        counters.forEach(animateCounter);
+        obs.disconnect(); // run only once
+      }
+    });
+  }, {
+    threshold: 0.4
+  });
+
+  const kpiSection = document.querySelector('.kpis');
+  if (kpiSection) observer.observe(kpiSection);
+})();
+  </script>
+    
     <script src="index.js"></script>
 </body>
 
 
 </html>
+
 
 
 
