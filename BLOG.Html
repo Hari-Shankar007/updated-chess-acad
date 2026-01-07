@@ -789,6 +789,118 @@ header {
 body {
     padding-top: 0 !important;  /* Remove any body padding */
 }
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    /* Show hamburger button on mobile */
+    .nav-toggle {
+        display: flex !important;
+    }
+
+    /* Hide nav links on mobile by default */
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: linear-gradient(180deg, rgba(15, 22, 48, .95), rgba(15, 22, 48, .8));
+        padding: 20px 0;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 39;
+    }
+
+    /* Show nav links when hamburger is open */
+    .nav-toggle.open ~ .nav-links {
+        max-height: 500px;
+    }
+
+    .nav-links a {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--stroke);
+        display: block;
+        text-align: left;
+    }
+
+    /* Container responsive */
+    .container {
+        grid-template-columns: 1fr !important;
+        padding: 15px !important;
+    }
+
+    .main-content {
+        padding-top: 60px;
+    }
+
+    .sidebar {
+        position: static !important;
+        top: auto !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* Content responsive */
+    .news-item {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .news-item h2 {
+        font-size: 18px;
+    }
+
+    .image-container img {
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    /* Logo responsive */
+    .logo {
+        font-size: 16px;
+    }
+
+    /* Buttons responsive */
+    .combo-button, .subscribe-button, .register-button {
+        width: calc(100% - 20px) !important;
+        margin: 10px !important;
+        padding: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: auto;
+    }
+
+    .nav {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    .container {
+        margin-top: 70px;
+    }
+
+    .news-item h2 {
+        font-size: 16px;
+    }
+
+    .news-item h1 {
+        font-size: 24px;
+    }
+
+    .sidebar h3 {
+        font-size: 16px;
+    }
+
+    .main-content {
+        max-width: 100%;
+    }
+}
 
     </style>
 </head>
@@ -1725,6 +1837,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </body>
     </html>
+
 
 
 
