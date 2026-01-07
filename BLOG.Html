@@ -98,7 +98,7 @@
 
     /* Hamburger */
     .nav-toggle {
-      display: none;
+      
       width: 42px;
       height: 42px;
       border-radius: 999px;
@@ -138,6 +138,13 @@
 
     .nav-toggle.open .nav-toggle-line:nth-child(3) {
       transform: translateY(-6px) rotate(-45deg);
+    }
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 10px 16px;
+        gap: 10px;
+        float: left;
     }
 
         body {
@@ -1716,6 +1723,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </body>
     </html>
+
 
 
 
