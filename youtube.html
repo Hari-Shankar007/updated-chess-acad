@@ -10,7 +10,34 @@
 
 <body>
 
-    <header>
+     <header>
+    <div class="container nav">
+      <div class="logo magnetic">EDUCHESS</div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+
+      <nav class="row nav-links">
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="leaderboard.html" target="_blank">Leaderboard</a>
+        <a href="#coaching">Coaching</a>
+        <a href="#faqs">FAQs</a>
+        <a href="BLOG.Html" target="_blank">Blog</a>
+        <a href="youtube.html">YouTube</a>
+        <a href="#contact">Contact</a>
+        <a href="#book" class="btn nav-cta">Book</a>
+      </nav>
+
+
+    </div>
+  </header>
+
+
+    <!-- <header>
         <div class="container nav">
             <div class="logo magnetic">EDUCHESS</div>
             <nav class="row" style="justify-content:flex-end">
@@ -25,7 +52,7 @@
                 <a href="#book" class="btn" style="padding:8px 14px;border-radius:10px;margin-left:6px">Book</a>
             </nav>
         </div>
-    </header>
+    </header> -->
 
     <style>
 
@@ -469,6 +496,14 @@
         height: 180px;
       }
     }
+
+      @media (max-width: 768px) {
+    .nav {
+        padding: 10px 16px;
+        gap: 10px;
+        float: left;
+      }
+    }
   </style>
 </head>
 <body>
@@ -832,6 +867,7 @@
 
 
 </html>
+
 
 
 
