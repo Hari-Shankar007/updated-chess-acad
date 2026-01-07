@@ -235,6 +235,153 @@ footer a:hover {
     text-shadow: 0 0 8px rgba(0, 227, 168, 0.5);
 }
 
+/* Chatbot */
+    .chat-toggle {
+      position: fixed;
+      bottom: 110px;
+      right: 23px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #00e0ff, #a200ff);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      z-index: 9999;
+      transition: 0.3s;
+    }
+
+    .chat-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    }
+
+    .chat-container {
+      position: fixed;
+      bottom: 130px;
+      right: 40px;
+      width: 340px;
+      height: 350px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 9998;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(30px);
+      transition: all 0.3s ease;
+    }
+
+    .chat-container.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .chat-header {
+      background: linear-gradient(90deg, #00e0ff, #a200ff);
+      color: white;
+      text-align: center;
+      padding: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .chat-box {
+      flex: 1;
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 10px 14px;
+      margin: 6px 0;
+      border-radius: 16px;
+      line-height: 1.4;
+      font-size: 14px;
+      color: white;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .user-message {
+      background: linear-gradient(90deg, #00e0ff, #0099ff);
+      align-self: flex-end;
+      border-bottom-right-radius: 0;
+    }
+
+    .bot-message {
+      background: rgba(255, 255, 255, 0.08);
+      align-self: flex-start;
+      border-bottom-left-radius: 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .chat-input input {
+      flex: 1;
+      background: none;
+      border: none;
+      color: white;
+      padding: 10px;
+      outline: none;
+    }
+
+    .chat-input button {
+      background: linear-gradient(90deg, #00e0ff, #a200ff);
+      border: none;
+      padding: 10px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .chat-input button:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+    }
+
+
 /* WhatsApp Button */
 .whatsapp-button {
     position: fixed;
@@ -1160,6 +1307,21 @@ Vincent Keymer's victory in the 2024 Freestyle Chess G.O.A.T. Challenge marks a 
             <footer>
         <p>&copy; 2025 Educhess Academy. All rights reserved. <a href="#privacy">Privacy Policy</a></p>
     </footer>
+
+<!-- Chat -->
+  <div class="chat-toggle" id="chat-toggle">💬</div>
+
+  <div class="chat-container" id="chat-container">
+    <div class="chat-header">AI ChatBot 💬</div>
+    <div class="chat-box" id="chat-box">
+      <div class="message bot-message">Hello! 👋 I'm your assistant. How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+      <input id="user-input" type="text" placeholder="Type your message..." />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
     <div class="whatsapp-button">
         <a href="https://wa.me/9633896415" target="_blank" style="display: flex; justify-content: center; align-items: center;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
@@ -1548,4 +1710,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </body>
     </html>
+
 
