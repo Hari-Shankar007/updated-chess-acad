@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1013440852602912819/1335548077628461126/Hand_n_Brain_vs_Viewers_1.png?ex=67a09192&is=679f4012&hm=56cea09cf4c50229543ec594e58ed807d7760da11b6b220c6ddcb50e2ea0e126&=&format=webp&quality=lossless&width=662&height=662">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="chess coaching, online chess lessons, chess tutor, chess training, improve chess skills, chess strategy, grandmaster training">
+    <meta name="description" content="Join our chess coaching program to improve your chess skills with expert guidance. Learn openings, middle-game strategies, and endgame techniques.">
+    <title>EDUCHESS Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f3f4f7, #e3e8ee);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+       :root {
+    --bg: #0b1020;
+    --bg2: #0f1630;
+    --text: #f2f7ff;
+    --muted: #c9d6ff;
+    --accent: #9be15d;
+    --accent2: #00e3a8;
+    --stroke: #22305e;
+    --card: rgba(255, 255, 255, .05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    background: linear-gradient(135deg, #0b1020 0%, #0f1630 50%, #0a1f2e 100%);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.65;
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 40;
+    background: linear-gradient(180deg, rgba(15, 22, 48, .85), rgba(15, 22, 48, .4));
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--stroke);
+    transition: box-shadow .3s ease, background .3s ease;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+}
+
+.logo {
+    font-weight: 900;
+    letter-spacing: .12em;
+    color: var(--accent);
+    font-size: 22px;  /* Changed from 24px to 22px */
+}
+
+.nav nav {
+    display: flex;
+    gap: 1.125rem; /* 18px - matches margin-left: 18px from GitHub */
+    align-items: center;
+}
+
+.nav a {
+    position: relative;
+    font-weight: 650;
+    color: #fff;
+    opacity: .95;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transition: .35s;
+}
+
+.nav a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(155, 225, 93, 0.5);
+}
+
+.nav a:hover:after {
+    width: 100%;
+}
+
+.nav a.btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #091226;
+    padding: 8px 14px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 227, 168, .2);
+    margin-left: 6px;
+    font-weight: 700;
+}
+
+.nav a.btn:hover {
+    text-shadow: none;
+    box-shadow: 0 8px 20px rgba(0, 227, 168, .4);
+}
+
+.nav a.btn:after {
+    display: none;
+}
+
+/* Sections */
+.section {
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.section p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    color: var(--muted);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(180deg, var(--bg2), #0a1228);
+    color: var(--text);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 1rem;
+    border-top: 1px solid var(--stroke);
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--accent2);
+    text-shadow: 0 0 8px rgba(0, 227, 168, 0.5);
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 999;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-button img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Featured & Blog Posts */
+.featured, .blog-posts {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.featured article {
+    background: var(--card);
+    padding: 20px;
+    border: 1px solid var(--stroke);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.blog-posts article {
+    background: var(--card);
+    padding: 15px;
+    border: 1px solid var(--stroke);
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-posts article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 227, 168, 0.15);
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 120px auto 0;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    background: transparent;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.main-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* News Items */
+.news-item {
+    margin-bottom: 40px;
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 18px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.news-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 227, 168, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 227, 168, 0.1);
+}
+
+.news-item h1 {
+    margin-top: 0;
+    font-size: 32px;
+    color: var(--text);
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.news-item h2 {
+    font-size: 24px;
+    color: var(--text);
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.news-item h3 {
+    font-size: 18px;
+    color: var(--accent);
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px rgba(155, 225, 93, 0.3);
+}
+
+.news-item p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.02);
+}
+
+.new-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #ff6b6b, #ff0000);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
+/* Date & Description */
+.date {
+    color: var(--accent2);
+    margin: 15px 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.description.show-full {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
+.read-more-btn {
+    display: none;
+}
+
+
+
+/* Sidebar */
+.sidebar {
+    position: sticky;
+    top: 100px;
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 18px;
+    padding: 0;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 14px 50px rgba(0, 0, 0, .35);
+    overflow: hidden;
+}
+
+.sidebar h3 {
+    background: linear-gradient(180deg, rgba(155, 225, 93, 0.3), rgba(0, 227, 168, 0.2));
+    color: var(--accent);
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid var(--stroke);
+    text-shadow: 0 0 8px rgba(155, 225, 93, 0.3);
+}
+
+/* Product Images */
+.product-images {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-description {
+    padding: 0 20px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Pricing */
+.pricing {
+    padding: 20px;
+    text-align: center;
+}
+
+.pricing p {
+    color: var(--muted);
+    margin: 10px 0;
+}
+
+/* Buttons */
+.combo-button, .subscribe-button, .register-button, .back-button {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #091226;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 227, 168, 0.2);
+}
+
+.combo-button:hover, .subscribe-button:hover, .register-button:hover, .back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 227, 168, 0.4);
+}
+
+/* Vacation Content */
+.vacation-content {
+    padding: 20px;
+}
+
+.vacation-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.vacation-details li {
+    margin: 10px 0;
+    padding: 5px 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.vacation-details li::before {
+    content: "✓ ";
+    color: var(--accent);
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 30px auto;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(155, 225, 93, 0.2), rgba(0, 227, 168, 0.2));
+    color: var(--text);
+    border: 1px solid var(--stroke);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #091226;
+    box-shadow: 0 4px 12px rgba(0, 227, 168, 0.2);
+}
+
+.pagination button:disabled {
+    background: rgba(255, 
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px auto;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .pagination button {
+            padding: 10px 20px;
+            background-color: #1c2833;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pagination button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #currentPage {
+            font-weight: bold;
+            color: #333;
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-columns: 2fr 1fr;
+            }
+
+            .sidebar {
+                margin-bottom: 0;
+            }
+
+            .pagination {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .post-title-link {
+            color: #1c2833;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .post-title-link:hover {
+            color: #f39c12;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #1c2833;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #2c3e50;
+        }
+
+    </style>
+</head>
+
+  <header>
+    <div class="nav">
+        <div class="logo magnetic">EDUCHESS</div>
+        <nav>
+            <a href="index.html#about">About</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="leaderboard.html" target="_blank">Leaderboard</a>
+            <a href="index.html#coaching">Coaching</a>
+            <a href="index.html#faqs">FAQs</a>
+            <a href="youtube.html" target="_blank">YouTube</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="index.html#book" class="btn">Book</a>
+        </nav>
+    </div>
+</header>
+
+
+
+
+    <body>
+    <div class="container">
+        <!-- Main content section -->
+        <div class="main-content">
+            <!-- Sample News Items -->
+            <div class="news-item">
+                <h2>Gukesh Dommaraju: The Youngest World Chess Champion</h2>
+                <div class="image-container">
+                    <img src="https://images.indianexpress.com/2024/12/New-Project-2024-12-12T205645.570.jpg" alt="World Chess Championship 2024">
+                    <span class="new-badge">New</span>
+                </div>
+                <p class="date">12/12/2024</p>
+              <div class="description">
+
+                <p>In December 2024, the chess world witnessed history as India's 18-year-old prodigy, Gukesh Dommaraju, became the youngest-ever World Chess Champion. He defeated reigning champion Ding Liren of China in a tense 14-game match in Singapore.</p> <h3>The Championship Match</h3> <p>The final match between Gukesh and Ding was an intense battle of skill and endurance. Nine out of the 14 games ended in draws, showcasing the high level of play from both competitors. The turning point came in the final game when Ding, under time pressure, made a costly mistake. Gukesh capitalized on the opportunity, securing a 7.5-6.5 victory and taking home the title.</p> <h3>Gukesh's Winning Strategy</h3> <p>Throughout the tournament, Gukesh displayed remarkable composure and preparation. His opening choices were solid, and his middle-game calculations were precise. He surprised Ding with aggressive play in crucial moments, keeping the defending champion on edge.</p> <h3>The Winning Moment</h3> <p>The final game saw Gukesh in a slightly better position heading into the endgame. As the clock ticked down, Ding made an inaccurate bishop move, giving Gukesh an opening. With flawless technique, Gukesh converted his advantage into a historic win. As soon as Ding resigned, the young Indian grandmaster put his hands over his face, overwhelmed with emotion.</p> <h3>Reactions and Interviews</h3> <p>In the post-match interview, Gukesh said, "This is a dream come true. I have worked so hard for this moment, and to achieve it at such a young age is unbelievable."</p> <p>Former world champion Viswanathan Anand praised Gukesh’s performance, calling it a "monumental achievement" and stating that Indian chess had entered a new era. Chess fans and experts worldwide hailed Gukesh as a future legend in the making.</p> <h3>A New Era for Indian Chess</h3> <p>With this victory, Gukesh becomes only the second Indian to win the World Chess Championship, following in the footsteps of Anand. His triumph has ignited a new wave of enthusiasm for chess in India, inspiring young players to pursue the game seriously.</p> <h3>Conclusion</h3> <p>Gukesh Dommaraju's journey from a young chess enthusiast to the youngest World Chess Champion is a testament to his dedication and passion. His victory marks a new chapter in chess history and solidifies India's dominance in the sport.</p>
+                </div>
+                
+            </div>
+
+            <div class="news-item">
+                <h2>Aravindh Chithambaram Clinches 2025 Prague Chess Festival Masters Title</h2>
+                <div class="image-container">
+                    <img src="https://static.toiimg.com/thumb/msid-118790473,width-1280,height-720,resizemode-4/118790473.jpg" alt="Prague Chess Festival Masters">
+                </div>
+                <p class="date">07/03/2025</p>
+                <div class="description collapsed">
+                 <p>On 07/03/2025, Indian Grandmaster Aravindh Chithambaram secured victory at the 2025 Prague Chess Festival Masters, finishing with an undefeated score of 6 out of 9. His impressive performance placed him ahead of elite players such as Anish Giri and R Praggnanandhaa.</p> <p>Throughout the tournament, Aravindh showcased exceptional skill, claiming crucial wins over Vincent Keymer, Wei Yi, and Anish Giri. His performance rating soared to 2829, earning him 12 Elo points and pushing him up to 14th in the live world rankings.</p> <p>This marks his second major triumph in a row, following his victory at the Chennai Grand Masters in November 2024. His consistency at the highest level is cementing his status as one of the world's top chess players.</p> <p>In the final round, Aravindh secured a draw against Turkey’s Ediz Gurel, ensuring his place at the top of the standings. Anish Giri’s win over Praggnanandhaa prevented a tie for first, leaving Giri and Wei Yi to share second place with 5 points each.</p> <p>Aravindh’s rise in the chess world has been fueled by growing confidence and self-belief, according to his coach. With this victory, he is expected to receive more invitations to elite tournaments, further advancing his career.</p> <p>Indian chess continues to make waves globally, and Aravindh’s success is yet another testament to the country’s deep talent pool. His journey is one to watch as he continues to climb the ranks of the sport.</p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Vincent Keymer, who helped Gukesh win world title, clinches Weissenhaus leg of Freestyle Chess Tour 2025</h2>
+                <div class="image-container">
+                    <img src="https://ss-i.thgim.com/public/incoming/7nm61r/article69220975.ece/alternates/FREE_1200/Stev_Bonhage_Freestyle_Chess_Vincent_Keymar_060225_Weissenhaus_Germany_DSC_2519.jpg" alt="Vincent Keymer">
+                </div>
+                <p class="date">16/02/2025</p>
+                <div class="description collapsed">
+                   In February 2025, the world of chess witnessed a remarkable event as Germany's young talent, Vincent Keymer, emerged victorious in the Freestyle Chess G.O.A.T. Challenge. This tournament, held at Gut Weißenhaus in Wangels, Germany, brought together some of the world's top chess grandmasters to compete in a unique format known as Freestyle Chess.
+
+<h3>What is Freestyle Chess?</h3>
+Freestyle Chess, inspired by Bobby Fischer's Chess960, introduces random starting positions for the pieces. This variation eliminates the possibility of extensive pre-game preparation and emphasizes creativity and adaptability, as players cannot rely on traditional opening strategies.
+
+<h3>The Tournament Setup</h3>
+The Freestyle Chess G.O.A.T. Challenge took place from February 9 to 16, 2024. Eight elite grandmasters participated, including former World Champion Magnus Carlsen, reigning World Champion Ding Liren, and Germany's own Vincent Keymer. The tournament featured a prize fund of $200,000, with $60,000 awarded to the winner.
+
+<h3>Vincent Keymer's Journey</h3>
+Vincent Keymer, born on November 15, 2004, in Mainz, Germany, has been recognized as one of the country's most promising chess talents. He achieved the title of Grandmaster in 2020 and has since been climbing the ranks in international chess.
+
+<h3>The Road to Victory</h3>
+In the preliminary rapid games, Keymer showcased his skill by securing second place, setting the stage for the knockout rounds. In the semifinals, he faced the formidable Magnus Carlsen. Demonstrating exceptional strategy and composure, Keymer defeated Carlsen, advancing to the finals.
+
+<h3>The Championship Match</h3>
+In the final match, Keymer faced American grandmaster Fabiano Caruana. The games were intense, with both players displaying high-level tactics and creativity. Keymer managed to secure a 1.5-0.5 victory, clinching the championship title.
+
+<h3>Reactions and Interviews</h3>
+Following his victory, Keymer expressed his elation, stating, "Winning this tournament is a dream come true. Competing against the world's best and coming out on top is an incredible feeling." Magnus Carlsen praised Keymer's performance, noting his adaptability and innovative approach to the game.
+
+<h3>Impact on the Chess World</h3>
+Keymer's triumph in the Freestyle Chess G.O.A.T. Challenge has garnered significant attention in the chess community. His success not only highlights his individual talent but also brings focus to the growing popularity of chess variants like Freestyle Chess. This victory is expected to inspire a new generation of players to explore and embrace diverse forms of the game.
+
+<h3>Conclusion</h3>
+Vincent Keymer's victory in the 2024 Freestyle Chess G.O.A.T. Challenge marks a significant milestone in his career and the evolution of chess. His ability to adapt and excel in this innovative format showcases the dynamic nature of the game and sets the stage for future developments in the world of chess.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Praggnanandhaa Wins Tata Steel Chess 2025 After Dramatic Tiebreak Against Gukesh</h2>
+                <div class="image-container">
+                    <img src="https://images.chesscomfiles.com/uploads/v1/news/1587909.983aefa8.668x375o.06eef336cc68@2x.png" alt="Praggnanandhaa Wins Tata Steel Chess 2025">
+                </div>
+                <p class="date">02/02/2025</p>
+                <div class="description collapsed">
+               
+
+<p>WIJK AAN ZEE, Netherlands – In a tournament filled with surprises, comebacks, and nail-biting finishes, 18-year-old R Praggnanandhaa emerged as the Tata Steel Chess 2025 champion after a dramatic tiebreak showdown against fellow Indian Grandmaster Gukesh Dommaraju. The victory cemented Praggnanandhaa’s place among the world’s elite as he lifted one of the most prestigious trophies in chess.</p>
+<h3>A Tournament of Twists and Turns</h3>
+
+<p>The tournament saw intense battles right from the start. Gukesh took an early lead, scoring critical wins against Levon Aronian and Alireza Firouzja. His precise positional play and fearless approach made him look like the clear favorite for the title.</p> <p>Praggnanandhaa, on the other hand, had a steady but slower start. He suffered a tough loss to Anish Giri in Round 4 but bounced back with a spectacular victory against Nodirbek Abdusattorov. His ability to handle pressure and deliver strong endgames kept him in the race.</p> <p>By Round 10, Gukesh was still leading, but a dramatic game against Magnus Carlsen nearly derailed his campaign. The world champion created complications, but Gukesh held his ground and forced a draw after nearly six hours of play. Meanwhile, Praggnanandhaa kept climbing, defeating Maxime Vachier-Lagrave in a stunning tactical battle.</p>
+<h3>The Final Round: A Twist in the Tale</h3>
+
+<p>Heading into the final round, Gukesh was half a point ahead of Praggnanandhaa. All he needed was a win to secure the title. Paired against fellow Indian GM Arjun Erigaisi, Gukesh played aggressively but misjudged a critical queen exchange. Erigaisi took control, launching a decisive attack that ended Gukesh’s game in a crushing defeat.</p> <p>At the same time, Praggnanandhaa, knowing he had a chance to catch up, played a flawless game against Anish Giri. He maintained strong positional control throughout and converted his slight edge into a victory, tying with Gukesh at the top of the standings with 8.5 points each.</p>
+<h3>Tiebreak Showdown: A Clash of India’s Finest</h3>
+
+<p>With both players tied, the tournament rules required a two-game rapid tiebreak to determine the champion. The tension in the hall was palpable as the two young Indian grandmasters prepared for one final battle.</p> <p>In the first game, Praggnanandhaa, playing with White, opted for a solid yet dynamic approach. He built up pressure on the queenside, forcing Gukesh into a passive position. With precise calculation, he won a pawn and transitioned into an endgame where his passed pawn proved decisive. Gukesh fought hard but had to resign after 52 moves.</p> <p>The second game was Gukesh’s last chance to force a deciding Armageddon game. Needing a win, he launched an aggressive Sicilian Defense, trying to create chaos on the board. The game became incredibly sharp, with both players down to seconds on the clock. At one point, Gukesh sacrificed a piece for an attack, but Praggnanandhaa defended accurately, neutralizing the threats. With his last few moves, Praggnanandhaa exchanged queens, simplifying into a drawn position. Gukesh offered his hand in resignation. It was over.</p>
+<h3>The Winning Moment and Reactions</h3>
+
+<p>As soon as the game ended, Praggnanandhaa exhaled deeply, smiling as he leaned back in his chair. Gukesh, despite his disappointment, gave his friend a warm handshake. The crowd erupted in applause as Praggnanandhaa was crowned the Tata Steel Chess 2025 champion.</p> <p>Speaking after the match, Praggnanandhaa said, "I still can't believe it. This tournament was tough from the beginning, and the tiebreak was incredibly stressful. Gukesh is a phenomenal player, and I knew it would be a very close fight."</p> <p>Gukesh, though visibly disappointed, was gracious in defeat. "I gave it my all, but Prag played better today. These battles make us stronger, and I’ll be back next year," he said with a smile.</p> <p>Former world champion Viswanathan Anand, who has mentored both players, watched with pride. "What we saw today was the future of Indian chess. Both of them are already among the best in the world, and this is just the beginning."</p> <p>As the cameras flashed and the trophy was handed over, Praggnanandhaa lifted it high, marking yet another historic moment in Indian chess. The tournament had delivered everything—thrills, heartbreak, and a champion who proved his nerves under fire.</p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Pranav Venkatesh Dominates World Junior Chess Championship; Anna Shukhman Clinches Girls' Title</h2>
+                <div class="image-container">
+                    <img src="https://images.chesscomfiles.com/uploads/v1/news/1611390.e35cbe75.668x375o.52a1eafb6c2e@2x.jpg" alt="World Junior Chess Championship">
+                </div>
+                <p class="date">07/03/2025</p>
+                <div class="description collapsed">
+                  <p>In a remarkable display of talent and strategy, 18-year-old Indian Grandmaster (GM) Pranav Venkatesh emerged victorious at the 2025 World Junior Chess Championship, held from February 24 to March 8 in Petrovac, Montenegro. Simultaneously, Women's International Master (WIM) Anna Shukhman showcased exceptional skill to secure the Girls' title.</p>
+<h3>Pranav's Unbeaten Journey to the Title</h3>
+
+<p>Throughout the tournament, Pranav demonstrated unwavering focus and tactical brilliance. He remained unbeaten over 11 rounds, amassing an impressive 9 points. His performance was highlighted by crucial victories against top-seeded opponents and strategic draws that maintained his lead.</p> <p>In the final round, facing FIDE Master Matic Lavrencic of Slovenia, Pranav needed only a draw to clinch the title. Displaying calm and precision, he navigated the game to a balanced position, securing the necessary half-point. Reflecting on his triumph, Pranav expressed, "This victory is a dream come true. The competition was fierce, and I'm grateful for the support from my coaches and family."</p>
+<h3>Anna Shukhman's Commanding Performance</h3>
+
+<p>In the Girls' section, Anna Shukhman delivered an outstanding performance, finishing with 9 points out of 11. Remarkably, she concluded the tournament with a five-game winning streak, showcasing her resilience and determination.</p> <p>Her final round victory was a masterclass in strategy, as she outmaneuvered her opponent in the middlegame to secure a decisive win. Anna's elation was evident as she shared, "Winning the World Junior Championship is the culmination of years of hard work. I'm ecstatic and look forward to future challenges."</p>
+<h3>A Bright Future for Young Chess Talents</h3>
+
+<p>The successes of Pranav and Anna at the World Junior Chess Championship highlight the emergence of new talents in the global chess arena. Their achievements serve as inspiration for aspiring players worldwide, underscoring the importance of dedication, strategic thinking, and mental fortitude in the game of chess.</p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess Library Update</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess Library">
+                </div>
+                <p class="date">15/02/2024</p>
+                <div class="description collapsed">
+                    Our chess library has been updated with new books and digital resources! Members now have access to an expanded collection of strategy guides, opening encyclopedias, and classic game collections. Visit our library section to explore the new additions.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Summer Camp Early Bird Registration</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Summer Camp">
+                </div>
+                <p class="date">10/02/2024</p>
+                <div class="description collapsed">
+                    Early bird registration for our Summer Chess Camp 2024 is now open! Take advantage of special discounts and secure your spot in our comprehensive training program. The camp includes daily lessons, practice tournaments, and special guest lectures.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>New Online Learning Platform</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Online Platform">
+                </div>
+                <p class="date">05/02/2024</p>
+                <div class="description collapsed">
+                    We're launching our new online learning platform! Features include interactive lessons, puzzle solving, game analysis, and progress tracking. Students can now access course materials and practice exercises from anywhere, anytime.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <!-- New Blog Posts -->
+            <div class="news-item">
+                <h2>Grandmaster Simul Exhibition Event</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Grandmaster Simul">
+                </div>
+                <p class="date">01/02/2024</p>
+                <div class="description collapsed">
+                    Join us for an extraordinary opportunity to play against a Grandmaster in our upcoming simultaneous exhibition! Experience the thrill of facing a chess master while learning valuable insights from their strategic approach. Limited spots available for this unique event.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Student Achievement: FIDE Rating Milestone</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="FIDE Rating Achievement">
+                </div>
+                <p class="date">28/01/2024</p>
+                <div class="description collapsed">
+                    We're proud to announce that five of our students have crossed the 2000 FIDE rating mark this month! This remarkable achievement is a testament to their dedication and the effectiveness of our training programs. Read their inspiring journey and training methods here.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess Parent Workshop Series</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Parent Workshop">
+                </div>
+                <p class="date">25/01/2024</p>
+                <div class="description collapsed">
+                    Announcing our new workshop series for parents! Learn how to support your child's chess journey, understand tournament preparations, and create an optimal learning environment at home. Sessions include expert guidance on managing academic and chess training balance.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Introduction to Chess Composition Course</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess Composition">
+                </div>
+                <p class="date">20/01/2024</p>
+                <div class="description collapsed">
+                    Discover the artistic side of chess in our new chess composition course! Learn how to create beautiful chess problems and studies. This unique course will enhance your tactical vision and deepen your understanding of chess principles through creative problem-solving.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess and Technology Integration Workshop</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess Technology">
+                </div>
+                <p class="date">15/01/2024</p>
+                <div class="description collapsed">
+                    Join our workshop on leveraging modern technology for chess improvement! Learn about the best chess software, online resources, and AI-powered training tools. Special focus on using chess engines effectively and maintaining a digital chess notebook for study.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <!-- Additional Blog Posts -->
+            <div class="news-item">
+                <h2>Women's Chess Championship Results</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Women's Chess">
+                </div>
+                <p class="date">12/01/2024</p>
+                <div class="description collapsed">
+                    Celebrating the outstanding performance of our female chess players in the state championship! Three of our students secured podium positions, showcasing exceptional tactical play and strategic understanding. Read about their journey and preparation methods.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess Opening Masterclass Series</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Opening Masterclass">
+                </div>
+                <p class="date">08/01/2024</p>
+                <div class="description collapsed">
+                    Starting this month: comprehensive masterclasses on chess openings! Each session focuses on a specific opening system, covering strategic ideas, typical tactics, and modern interpretations. Perfect for players looking to expand their opening repertoire.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Young Prodigy's Success Story</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Young Prodigy">
+                </div>
+                <p class="date">05/01/2024</p>
+                <div class="description collapsed">
+                    Meet our youngest chess champion! At just 8 years old, she has achieved remarkable success in the U-10 category. Learn about her training routine, favorite chess players, and how she balances chess with academics.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>End Game Studies Workshop</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Endgame Studies">
+                </div>
+                <p class="date">02/01/2024</p>
+                <div class="description collapsed">
+                    Enhance your endgame skills with our specialized workshop! Focus on practical endgame positions, theoretical endings, and problem-solving techniques. Essential knowledge for players looking to improve their conversion of advantages.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>New Year Chess Resolution Challenge</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="New Year Challenge">
+                </div>
+                <p class="date">01/01/2024</p>
+                <div class="description collapsed">
+                    Start your chess year right! Join our special New Year challenge featuring daily puzzles, training goals, and improvement tracking. Set your chess resolutions and let us help you achieve them throughout 2024.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Holiday Chess Camp Highlights</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Holiday Camp">
+                </div>
+                <p class="date">28/12/2023</p>
+                <div class="description collapsed">
+                    Relive the best moments from our winter holiday chess camp! From intense training sessions to fun mini-tournaments, our students had an enriching experience. Check out photos and testimonials from participants.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Advanced Tactics Training Program</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Advanced Tactics">
+                </div>
+                <p class="date">25/12/2023</p>
+                <div class="description collapsed">
+                    Launch of our new advanced tactics training program! Designed for players rated 1600+, this intensive course covers complex combinations, sacrifice themes, and calculation training methods used by grandmasters.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess Psychology Seminar</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess Psychology">
+                </div>
+                <p class="date">22/12/2023</p>
+                <div class="description collapsed">
+                    Understanding the mental aspects of chess is crucial for success. Join our seminar on chess psychology, covering topics like handling pressure, maintaining focus, and developing a winning mindset. Led by experienced chess psychologists.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Online Blitz Tournament Series</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Blitz Tournament">
+                </div>
+                <p class="date">20/12/2023</p>
+                <div class="description collapsed">
+                    Get ready for our weekly online blitz tournament series! Practice your quick thinking and tactical skills in these fast-paced competitions. Prizes for winners and special categories. Open to all academy members.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess History Lecture Series</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess History">
+                </div>
+                <p class="date">18/12/2023</p>
+                <div class="description collapsed">
+                    Explore the rich history of chess in our new lecture series! From ancient origins to modern developments, learn about legendary players, historic matches, and how the game has evolved through centuries.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Strategic Planning Workshop</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Strategic Planning">
+                </div>
+                <p class="date">15/12/2023</p>
+                <div class="description collapsed">
+                    Master the art of strategic planning in chess! This workshop focuses on position evaluation, long-term planning, and understanding pawn structures. Essential for players looking to improve their strategic understanding.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess960 Tournament Announcement</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess960">
+                </div>
+                <p class="date">12/12/2023</p>
+                <div class="description collapsed">
+                    Experience chess in a new way! Join our Chess960 (Fischer Random) tournament. Test your understanding of chess principles without relying on opening theory. Great opportunity to develop creativity and adaptability.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Junior Chess League Formation</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Junior League">
+                </div>
+                <p class="date">10/12/2023</p>
+                <div class="description collapsed">
+                    Exciting news for young players! We're launching a Junior Chess League for players under 14. Regular matches, team competitions, and individual rankings. Great opportunity for consistent competitive experience.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess Software Training Session</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess Software">
+                </div>
+                <p class="date">08/12/2023</p>
+                <div class="description collapsed">
+                    Learn to use popular chess software effectively! Hands-on training with ChessBase, Fritz, and other essential tools. Topics include database management, game analysis, and preparation techniques.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess Book Club Launch</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Book Club">
+                </div>
+                <p class="date">05/12/2023</p>
+                <div class="description collapsed">
+                    Join our new Chess Book Club! Monthly meetings to discuss classic and modern chess literature. Share insights, analyze famous games, and improve your understanding through group discussion and analysis.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Positional Play Masterclass</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Positional Play">
+                </div>
+                <p class="date">02/12/2023</p>
+                <div class="description collapsed">
+                    Enhance your positional understanding with our comprehensive masterclass! Learn about piece placement, pawn structure manipulation, and prophylaxis. Featuring analysis of classic games by positional masters.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess Puzzle Challenge Week</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Puzzle Challenge">
+                </div>
+                <p class="date">30/11/2023</p>
+                <div class="description collapsed">
+                    Test your tactical skills in our week-long puzzle challenge! Daily puzzles of increasing difficulty, with prizes for the most accurate solvers. Great way to improve pattern recognition and calculation.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess and Mathematics Integration</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess Mathematics">
+                </div>
+                <p class="date">28/11/2023</p>
+                <div class="description collapsed">
+                    Discover the fascinating connection between chess and mathematics! Special workshop exploring mathematical concepts in chess, probability in game situations, and how chess can improve mathematical thinking.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Team Chess Challenge</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Team Challenge">
+                </div>
+                <p class="date">25/11/2023</p>
+                <div class="description collapsed">
+                    Form your team for our monthly team chess challenge! Four-player teams compete in exciting matches. Great opportunity for developing team spirit and collaborative strategy planning.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+
+            <div class="news-item">
+                <h2>Chess Etiquette and Rules Seminar</h2>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess Etiquette">
+                </div>
+                <p class="date">22/11/2023</p>
+                <div class="description collapsed">
+                    Essential knowledge for tournament players! Comprehensive coverage of FIDE rules, tournament etiquette, and proper conduct during games. Important session for all competitive players.
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Tournament Section -->
+            <section class="sidebar-section">
+                <h3>Weekly and Monthly Tournament</h3>
+                <div class="product-images">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Educhess Academy Tournament">
+                </div>
+                <p class="product-description">Educhess Academy offers weekly and monthly chess tournaments, both online and offline, to help students gain experience, sharpen their skills, and build confidence through competition</p>
+                <div class="pricing">
+                    <p>Entry Fee: Rs.299/- per tournament</p>
+                    <p>Format: 15+ 10 seconds increment</p>
+                </div>
+                <a href="https://lichess.org/team/educhess-academy-tvm" target="_blank" class="combo-button">Register for Tournament »</a>
+            </section>
+
+            <!-- Vacation Classes Section -->
+            <section class="sidebar-section">
+                <h3>Summer Vacation Chess Classes 2024</h3>
+                <div class="vacation-content">
+                    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Chess Summer Camp">
+                    <div class="vacation-details">
+                        <ul>
+                            <li>🎯 Beginner to Advanced Levels</li>
+                            <li>📅 April - May 2024</li>
+                            <li>⏰ Flexible Timing Options</li>
+                            <li>🏆 Tournament Practice</li>
+                            <li>📊 Personal Progress Tracking</li>
+                        </ul>
+                    </div>
+                    <a href="#register" class="register-button">Register for Vacation Classes »</a>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Add pagination controls -->
+        <div class="pagination">
+            <button onclick="changePage('prev')" id="prevBtn">Previous</button>
+            <span id="currentPage">Page 1</span>
+            <button onclick="changePage('next')" id="nextBtn">Next</button>
+        </div>
+    </div>
+</body>
+
+            <footer>
+        <p>&copy; 2025 Educhess Academy. All rights reserved. <a href="#privacy">Privacy Policy</a></p>
+    </footer>
+    <div class="whatsapp-button">
+        <a href="https://wa.me/9633896415" target="_blank" style="display: flex; justify-content: center; align-items: center;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+       
+        </div>
+        <script>
+// Make titles clickable to show full article - Simple click handler
+document.addEventListener('DOMContentLoaded', function() {
+    const titles = document.querySelectorAll('.news-item h2');
+    titles.forEach(title => {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function() {
+            const newsItem = this.closest('.news-item');
+            const description = newsItem.querySelector('.description');
+            description.classList.toggle('show-full');
+        });
+    });
+});
+
+const ITEMS_PER_PAGE = 3;
+let currentPage = 1;
+let allNewsItems = [];
+
+function createSlug(text) {
+    return text.toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/--+/g, '-');
+}
+
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+function showBlogPost(slug) {
+    const mainContent = document.querySelector('.main-content');
+    const post = allNewsItems.find(item => item.getAttribute('data-slug') === slug);
+    
+    if (post) {
+        mainContent.innerHTML = '';
+        const clone = post.cloneNode(true);
+        
+        // Show full description
+        const description = clone.querySelector('.description');
+        if (description) {
+            description.classList.add('show-full');
+        }
+        
+        // Hide Read More button
+        const button = clone.querySelector('.read-more-btn');
+        if (button) {
+            button.style.display = 'none';
+        }
+        
+        mainContent.appendChild(clone);
+        
+        // Add back button
+        const backButton = document.createElement('button');
+        backButton.textContent = '← Back to All Posts';
+        backButton.className = 'back-button';
+        backButton.onclick = function() {
+            window.location.href = window.location.pathname;
+        };
+        mainContent.insertBefore(backButton, mainContent.firstChild);
+        
+        document.querySelector('.pagination').style.display = 'none';
+    } else {
+        displayCurrentPage();
+    }
+}
+
+function sortNewsByDate() {
+    const mainContent = document.querySelector('.main-content');
+    allNewsItems = Array.from(mainContent.getElementsByClassName('news-item'));
+    
+    allNewsItems.forEach(item => {
+        const title = item.querySelector('h2').textContent;
+        const slug = createSlug(title);
+        item.setAttribute('data-slug', slug);
+        
+        const titleElement = item.querySelector('h2');
+        titleElement.innerHTML = `<a href="?post=${slug}" class="post-title-link">${title}</a>`;
+    });
+    
+    allNewsItems.sort((a, b) => {
+        const dateA = new Date(a.querySelector('.date').textContent.split('/').reverse().join('/'));
+        const dateB = new Date(b.querySelector('.date').textContent.split('/').reverse().join('/'));
+        return dateB - dateA;
+    });
+    
+    const postSlug = getUrlParameter('post');
+    if (postSlug) {
+        showBlogPost(postSlug);
+    } else {
+        displayCurrentPage();
+        updatePaginationControls();
+    }
+}
+
+function displayCurrentPage() {
+    const mainContent = document.querySelector('.main-content');
+    mainContent.innerHTML = '';
+    
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const itemsToShow = allNewsItems.slice(startIndex, endIndex);
+    
+    itemsToShow.forEach(item => {
+        const clone = item.cloneNode(true);
+        
+        // Re-attach click handler to cloned title
+        const title = clone.querySelector('h2');
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function(e) {
+            // Prevent link navigation when clicking on title
+            if (e.target.tagName !== 'A') {
+                const description = clone.querySelector('.description');
+                description.classList.toggle('show-full');
+            }
+        });
+        
+        mainContent.appendChild(clone);
+    });
+    
+    document.getElementById('currentPage').textContent = `Page ${currentPage}`;
+    document.querySelector('.pagination').style.display = 'flex';
+}
+
+function updatePaginationControls() {
+    const totalPages = Math.ceil(allNewsItems.length / ITEMS_PER_PAGE);
+    document.getElementById('prevBtn').disabled = (currentPage === 1);
+    document.getElementById('nextBtn').disabled = (currentPage === totalPages);
+}
+
+function changePage(direction) {
+    const totalPages = Math.ceil(allNewsItems.length / ITEMS_PER_PAGE);
+    if (direction === 'prev' && currentPage > 1) {
+        currentPage--;
+    } else if (direction === 'next' && currentPage < totalPages) {
+        currentPage++;
+    }
+    displayCurrentPage();
+    updatePaginationControls();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    sortNewsByDate();
+});
+</script>
+
+    </body>
+    </html>
