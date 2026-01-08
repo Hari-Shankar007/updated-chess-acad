@@ -61,6 +61,87 @@ a {
 
 
 
+/* Header */
+header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 40;
+    background: linear-gradient(180deg, rgba(15, 22, 48, .85), rgba(15, 22, 48, .4));
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--stroke);
+    transition: box-shadow .3s ease, background .3s ease;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+}
+
+.logo {
+    font-weight: 900;
+    letter-spacing: .12em;
+    color: var(--accent);
+    font-size: 22px;  /* Changed from 24px to 22px */
+}
+
+.nav nav {
+    display: flex;
+    gap: 1.125rem; /* 18px - matches margin-left: 18px from GitHub */
+    align-items: center;
+}
+
+.nav a {
+    position: relative;
+    font-weight: 650;
+    color: #fff;
+    opacity: .95;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transition: .35s;
+}
+
+.nav a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(155, 225, 93, 0.5);
+}
+
+.nav a:hover:after {
+    width: 100%;
+}
+
+.nav a.btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #091226;
+    padding: 8px 14px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 227, 168, .2);
+    margin-left: 6px;
+    font-weight: 700;
+}
+
+.nav a.btn:hover {
+    text-shadow: none;
+    box-shadow: 0 8px 20px rgba(0, 227, 168, .4);
+}
+
+.nav a.btn:after {
+    display: none;
+}
+
 
 
 
@@ -347,11 +428,6 @@ footer a:hover {
     max-width: 800px;
     margin: 0 auto;
     padding-top: 60px;  /* Match header height */
-}
-header .container {
-    margin: 0 auto;
-    padding: 0 20px;
-    max-width: 1200px;
 }
 
 
@@ -763,7 +839,7 @@ header .container {
         <a href="leaderboard.html" target="_blank">Leaderboard</a>
         <a href="#coaching">Coaching</a>
         <a href="#faqs">FAQs</a>
-        <a href="BLOG.Html" target="_blank">Blog</a>
+        <a href="BLOG.Html">Blog</a>
         <a href="youtube.html" target="_blank">YouTube</a>
         <a href="#contact">Contact</a>
         <a href="#book" class="btn nav-cta">Book</a>
@@ -1446,6 +1522,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </body>
     </html>
+
 
 
 
