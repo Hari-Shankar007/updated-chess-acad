@@ -129,11 +129,7 @@ a {
       border-radius: 10px;
     }
 
-    .theme-switcher {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    
 
     .select {
       appearance: none;
@@ -193,6 +189,48 @@ a {
 
 
 
+/* ================= MOBILE NAV TOGGLE ================= */
+@media (max-width: 768px) {
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px; /* below header */
+    left: 0;
+    right: 0;
+    background: rgba(11, 16, 32, 0.98);
+    backdrop-filter: blur(14px);
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 25px 0;
+
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s ease;
+    border-bottom: 1px solid var(--stroke);
+    z-index: 39;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+
+  body.nav-open {
+    overflow: hidden;
+  }
+}
 
 
 
@@ -1660,6 +1698,25 @@ Vincent Keymer's victory in the 2024 Freestyle Chess G.O.A.T. Challenge marks a 
   const kpiSection = document.querySelector('.kpis');
   if (kpiSection) observer.observe(kpiSection);
 })();
+
+
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('open');
+  navLinks.classList.toggle('open');
+  document.body.classList.toggle('nav-open');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.classList.remove('nav-open');
+  });
+});
+
   </script>
 
         <script>
@@ -1811,6 +1868,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </body>
     </html>
+
 
 
 
