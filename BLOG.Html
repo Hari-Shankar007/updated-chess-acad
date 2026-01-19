@@ -836,24 +836,23 @@ footer a:hover {
     <div class="container nav">
       <div class="logo magnetic">EDUCHESS</div>
 
-      <button class="nav-toggle" aria-label="Toggle navigation">
-      <span class="nav-toggle-line"></span>
-      <span class="nav-toggle-line"></span>
-      <span class="nav-toggle-line"></span>
-    </button>
+     
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+  ☰
+</button>
 
-      <nav class="row nav-links">
-        <a href="#about">About</a>
-        <a href="#gallery">Gallery</a>
-        <a href="leaderboard.html" target="_blank">Leaderboard</a>
-        <a href="#coaching">Coaching</a>
-        <a href="#faqs">FAQs</a>
-        <a href="BLOG.Html">Blog</a>
-        <a href="youtube.html" target="_blank">YouTube</a>
-        <a href="#contact">Contact</a>
-        <a href="#book" class="btn nav-cta">Book</a>
-      </nav>
+<nav class="row nav-links" id="navLinks">
+  <a href="#about">About</a>
+  <a href="#gallery">Gallery</a>
+  <a href="leaderboard.html" target="_blank">Leaderboard</a>
+  <a href="#coaching">Coaching</a>
+  <a href="#faqs">FAQs</a>
+  <a href="BLOG.Html">Blog</a>
+  <a href="youtube.html" target="_blank">YouTube</a>
+  <a href="#contact">Contact</a>
+</nav>
 
+    
 
     </div>
   </header>
@@ -1537,8 +1536,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
+
+navToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+</script>
+
+
     </body>
     </html>
+
 
 
 
