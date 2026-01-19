@@ -167,13 +167,6 @@ header {
 
 
 
-
-
-
-
-
-
-
 /* Sections */
 .section {
     padding: 6rem 2rem;
@@ -689,7 +682,16 @@ footer a:hover {
 }
 
 .pagination button:disabled {
-    background: rgba(255, 
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: block !important;
+    }
+}
+
 
         .pagination {
             display: flex;
@@ -837,6 +839,28 @@ footer a:hover {
         max-width: 100%;
     }
 }
+
+@media (max-width: 768px) {
+    .pagination {
+        display: flex !important;
+        position: relative;
+        z-index: 10;
+        margin: 20px auto 40px;
+        padding-bottom: 20px;
+    }
+
+    .pagination button {
+        padding: 10px 14px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    #currentPage {
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
 
     </style>
 </head>
@@ -1562,6 +1586,7 @@ navToggle.addEventListener("click", () => {
 
     </body>
     </html>
+
 
 
 
