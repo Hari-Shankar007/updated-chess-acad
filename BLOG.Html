@@ -53,10 +53,6 @@ a {
     color: inherit;
 }
 
-.container {
-    margin: 0 auto;  /* Just center it horizontally */
-}
-
 
 
 /* ================= HEADER ================= */
@@ -92,13 +88,14 @@ header {
 font-size: 22px !important;
 }
 
+
+
 .nav-links {
     display: flex;
     gap: 22px;
-    margin-top: -112px;
-    margin-left: 333px;
-    font-size: 18px;
+    font-size: 16px;
 }
+
 
 .nav-links a {
   text-decoration: none;
@@ -426,20 +423,27 @@ footer a:hover {
 }
 
 /* Main Container */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr 1fr; /* MAIN | SIDEBAR */
     gap: 40px;
-    background: transparent;
-    margin-top: 0;  /* NO TOP MARGIN */
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 900px) {
     .container {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr; /* Stack vertically */
+    }
+
+    .sidebar {
+        order: 2;
+    }
+
+    .main-content {
+        order: 1;
     }
 }
 
@@ -1590,6 +1594,7 @@ navToggle.addEventListener("click", () => {
 
     </body>
     </html>
+
 
 
 
