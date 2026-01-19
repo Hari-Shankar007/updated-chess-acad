@@ -429,28 +429,17 @@ footer a:hover {
 
 /* Main Container */
 
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     display: grid;
-    grid-template-columns: 2fr 1fr; /* MAIN | SIDEBAR */
+    grid-template-columns: 2.5fr 1fr; /* MAIN | SIDEBAR */
     gap: 40px;
+    align-items: start;
 }
 
-@media (max-width: 900px) {
-    .container {
-        grid-template-columns: 1fr; /* Stack vertically */
-    }
-
-    .sidebar {
-        order: 2;
-    }
-
-    .main-content {
-        order: 1;
-    }
-}
 
 .main-content {
     width: 100%;
@@ -776,18 +765,25 @@ footer a:hover {
         .back-button:hover {
             background-color: #2c3e50;
         }
-    /* Container responsive */
+   @media (max-width: 900px) {
     .container {
-        grid-template-columns: 1fr !important;
-        padding: 15px !important;
+        grid-template-columns: 1fr;
     }
 
+    .main-content {
+        order: 1;
+    }
 
     .sidebar {
-        position: static !important;
-        top: auto !important;
-        margin-bottom: 30px !important;
+        order: 2;
+        position: static;
+        margin-top: 30px;
     }
+}
+.sidebar {
+    position: sticky;
+    top: 90px;
+}
 
     /* Content responsive */
     .news-item {
@@ -1665,6 +1661,7 @@ userInput.addEventListener("keypress", function (e) {
 
     </body>
     </html>
+
 
 
 
