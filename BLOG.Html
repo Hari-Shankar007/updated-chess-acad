@@ -1592,9 +1592,78 @@ navToggle.addEventListener("click", () => {
 });
 </script>
 
+<script>
+/* ================= CHAT TOGGLE ================= */
+const chatToggle = document.getElementById("chat-toggle");
+const chatContainer = document.getElementById("chat-container");
+
+chatToggle.addEventListener("click", () => {
+  chatContainer.classList.toggle("active");
+});
+
+/* ================= CHAT MESSAGING ================= */
+const chatBox = document.getElementById("chat-box");
+const userInput = document.getElementById("user-input");
+
+function sendMessage() {
+  const message = userInput.value.trim();
+  if (!message) return;
+
+  // User message
+  const userMsg = document.createElement("div");
+  userMsg.className = "message user-message";
+  userMsg.textContent = message;
+  chatBox.appendChild(userMsg);
+
+  userInput.value = "";
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  // Bot response (demo logic)
+  setTimeout(() => {
+    const botMsg = document.createElement("div");
+    botMsg.className = "message bot-message";
+    botMsg.textContent = getBotReply(message);
+    chatBox.appendChild(botMsg);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 600);
+}
+
+/* ================= SIMPLE BOT BRAIN ================= */
+function getBotReply(msg) {
+  msg = msg.toLowerCase();
+
+  if (msg.includes("hello") || msg.includes("hi")) {
+    return "Hello 👋 Welcome to Educhess Academy!";
+  }
+  if (msg.includes("fees") || msg.includes("price")) {
+    return "Our courses start from ₹299. Please check the sidebar for details ♟️";
+  }
+  if (msg.includes("tournament")) {
+    return "We conduct weekly and monthly tournaments. You can register via Lichess.";
+  }
+  if (msg.includes("classes") || msg.includes("coaching")) {
+    return "We offer beginner to advanced chess coaching, both online and offline.";
+  }
+  if (msg.includes("contact")) {
+    return "You can contact us via WhatsApp or the Contact section on this page.";
+  }
+
+  return "Thanks for your message 😊 Our team will get back to you soon.";
+}
+
+/* ================= ENTER KEY SUPPORT ================= */
+userInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    sendMessage();
+  }
+});
+</script>
+
+
 
     </body>
     </html>
+
 
 
 
